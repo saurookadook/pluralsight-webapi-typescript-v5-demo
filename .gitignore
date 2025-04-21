@@ -4,3 +4,7 @@
 .pnp.js
 
 .env
+
+# OS files
+.DS_Store
+desktop.ini
