@@ -275,19 +275,29 @@ const Map: React.FC<MapProps> = () => {
   }, [flightData]);
 
   return (
-    <>
-   
-      <div className="map-wrap">
+    <div className="map-wrap">
         <a href="https://www.maptiler.com" className="watermark">
-          <img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo" />
+            <img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo" />
         </a>
-        <div ref={mapContainerRef} className="map" />
-        <div id='refresh-btn' className="mapboxgl-ctrl">
-          {webSocket === 'true' ? null : <div onClick={() => { clearMap(); setCounterId(counterId + 1); fetchDataFromOpenSkyLocal(); }}>refresh</div>}
-        </div>
 
-      </div>
-    </> 
+        <div ref={mapContainerRef} className="map" />
+
+        <div id='refresh-btn' className="mapboxgl-ctrl">
+            {webSocket === 'true'
+                ? null
+                : (
+                    <div
+                        onClick={() => {
+                            clearMap();
+                            setCounterId(counterId + 1);
+                            fetchDataFromOpenSkyLocal();
+                        }}
+                    >
+                        refresh
+                    </div>
+                )}
+        </div>
+    </div>
   );
 };
 
